@@ -3,7 +3,7 @@
 import Session from "next-auth";
 import { signIn, signOut } from "next-auth/react";
 import Image from "next/image";
-
+import Logo from "../public/logo.png";
 type NavbarProps = {
   user:
     | {
@@ -17,23 +17,31 @@ type NavbarProps = {
 
 export default function Navbar({ user }: NavbarProps) {
   return (
-    <nav className="flex justify-between items-center py-8">
-      <h1>Barista</h1>
+    <nav className="flex justify-between items-center p-8">
+      <h1 className="uppercase text-xl text-secondary font-semibold">
+        <Image src={Logo} alt={user?.name as string} width={60} height={60} />
+      </h1>
 
       <ul>
         {!user && (
           <li>
-            <button onClick={() => signIn()}>Sign in</button>
+            <button
+              className="bg-primary px-3 py-1.5 rounded text-white font-semibold text-base"
+              onClick={() => signIn()}
+            >
+              Sign in
+            </button>
           </li>
         )}
 
         {user && (
           <li>
             <Image
+              className="rounded-full"
               src={user?.image as string}
               alt={user?.name as string}
-              width={50}
-              height={50}
+              width={60}
+              height={60}
             />
           </li>
         )}
