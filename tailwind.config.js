@@ -10,13 +10,15 @@ module.exports = {
   ],
   theme: {
     extend: {
-      // general
-      light: "#FFFFFF",
-      middle: "#666666",
-      dark: "#151412",
-      // Brown shades
-      primary: "#c7a17a",
-      secondary: "#30271c",
+      colors: {
+        // general
+        light: "#FFFFFF",
+        middle: "#666666",
+        dark: "#151412",
+        // Brown shades
+        primary: "#D2996F",
+        secondary: "#30271c",
+      },
     },
   },
   plugins: [],
