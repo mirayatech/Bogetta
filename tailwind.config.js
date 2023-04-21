@@ -12,7 +12,7 @@ module.exports = {
     extend: {
       colors: {
         // general
-        light: "#FFFFFF",
+        light: "#EAE7DE",
         middle: "#666666",
         dark: "#151412",
         // Brown shades
