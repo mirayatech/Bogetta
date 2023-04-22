@@ -34,9 +34,9 @@ export default async function Home() {
   const products = await getProducts();
   console.log(products);
   return (
-    <main>
+    <main className="grid grid-cols-fluid gap-y-10 gap-x-5">
       {products.map((product) => (
-        <Product {...product} />
+        <Product {...product} key={product.name} />
       ))}
     </main>
   );

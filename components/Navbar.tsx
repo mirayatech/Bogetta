@@ -1,7 +1,7 @@
 "use client";
 
 import Session from "next-auth";
-import { signIn, signOut } from "next-auth/react";
+import { signIn } from "next-auth/react";
 import Image from "next/image";
 import Logo from "../public/logo.png";
 type NavbarProps = {
@@ -17,9 +17,9 @@ type NavbarProps = {
 
 export default function Navbar({ user }: NavbarProps) {
   return (
-    <nav className="flex justify-between items-center p-8">
+    <nav className="flex justify-between items-center pb-10">
       <h1 className="uppercase text-xl text-secondary font-semibold">
-        <Image src={Logo} alt={user?.name as string} width={60} height={60} />
+        barista
       </h1>
 
       <ul>

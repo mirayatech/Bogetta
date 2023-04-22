@@ -17,7 +17,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
   const session = await getServerSession(authOptions);
   return (
     <html lang="en">
-      <body>
+      <body className="p-6 bg-light">
         <Navbar user={session?.user} expires={session?.expires} />
         {children}
       </body>
