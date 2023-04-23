@@ -1,9 +1,23 @@
+import { ProductType } from "@/types";
 import formatPrice from "@/util/price-format";
-import { ProductType } from "@/util/types";
 import Image from "next/image";
-function Product({ name, image, price }: ProductType) {
+import Link from "next/link";
+function Product({
+  name,
+  image,
+  unit_amount,
+  id,
+  description,
+  metadata,
+}: ProductType) {
+  const { features } = metadata;
   return (
-    <div>
+    <Link
+      href={{
+        pathname: `/product/${id}`,
+        query: { name, image, unit_amount, id, description, features },
+      }}
+    >
       <Image
         src={image}
         alt={name}
@@ -13,9 +27,9 @@ function Product({ name, image, price }: ProductType) {
       />
       <div className="flex flex-col mt-2 font-medium text-lg">
         <span className="text-dark">{name}</span>
-        <span className="text-primary">{formatPrice(price)}</span>
+        <span className="text-primary">{formatPrice(unit_amount)}</span>
       </div>
-    </div>
+    </Link>
   );
 }
 
