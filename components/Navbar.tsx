@@ -4,6 +4,7 @@ import Session from "next-auth";
 import { signIn } from "next-auth/react";
 import Image from "next/image";
 import Logo from "../public/logo.png";
+import Link from "next/link";
 type NavbarProps = {
   user:
     | {
@@ -18,9 +19,12 @@ type NavbarProps = {
 export default function Navbar({ user }: NavbarProps) {
   return (
     <nav className="flex justify-between items-center pb-10">
-      <h1 className="uppercase text-xl text-secondary font-semibold">
+      <Link
+        href={"/"}
+        className="uppercase text-xl text-secondary font-semibold"
+      >
         barista
-      </h1>
+      </Link>
 
       <ul>
         {!user && (
