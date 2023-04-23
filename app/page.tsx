@@ -7,7 +7,6 @@ const getProducts = async () => {
   });
 
   const products = await stripe.products.list();
-  console.log(products);
 
   /*
   - Use Promise.all() to fetch all product prices at once instead of fetching them one by one in a loop.
@@ -17,12 +16,15 @@ const getProducts = async () => {
     // Fetch the prices for each product by using products ID
     products.data.map(async (product) => {
       const prices = await stripe.prices.list({ product: product.id });
+      const features = product.metadata.features || ""; // extra futureasd for metadata
       return {
         id: product.id,
         name: product.name,
-        price: prices.data[0].unit_amount,
         image: product.images[0],
+        description: product.description,
         currency: prices.data[0].currency,
+        unit_amount: prices.data[0].unit_amount,
+        metadata: { features },
       };
     })
   );
@@ -32,7 +34,6 @@ const getProducts = async () => {
 
 export default async function Home() {
   const products = await getProducts();
-  console.log(products);
   return (
     <main className="grid grid-cols-fluid gap-y-10 gap-x-5">
       {products.map((product) => (
