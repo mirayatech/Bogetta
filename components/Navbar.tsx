@@ -3,8 +3,10 @@
 import Session from "next-auth";
 import { signIn } from "next-auth/react";
 import Image from "next/image";
-import Logo from "../public/logo.png";
 import Link from "next/link";
+import Cart from "./Cart";
+import { useCartStore } from "@/util/store";
+import { AiFillShopping } from "react-icons/ai";
 type NavbarProps = {
   user:
     | {
@@ -17,6 +19,8 @@ type NavbarProps = {
 };
 
 export default function Navbar({ user }: NavbarProps) {
+  const cartStore = useCartStore();
+
   return (
     <nav className="flex justify-between items-center pb-10">
       <Link
@@ -25,8 +29,16 @@ export default function Navbar({ user }: NavbarProps) {
       >
         barista
       </Link>
-
-      <ul>
+      <ul className="flex align-center gap-10">
+        <li
+          className="flex items-center text-3xl relative cursor-pointer"
+          onClick={() => cartStore.toggleCart()}
+        >
+          <AiFillShopping />
+          <span className="bg-primary text-white text-sm font-bold w-5 h-5 rounded-full absolute left-4 bottom-4 flex items-center justify-center">
+            {cartStore.cart.length}
+          </span>
+        </li>
         {!user && (
           <li>
             <button
@@ -37,7 +49,6 @@ export default function Navbar({ user }: NavbarProps) {
             </button>
           </li>
         )}
-
         {user && (
           <li>
             <Image
@@ -50,6 +61,7 @@ export default function Navbar({ user }: NavbarProps) {
           </li>
         )}
       </ul>
+      {cartStore.isOpen && <Cart />}
     </nav>
   );
 }
