@@ -63,7 +63,9 @@ function Cart() {
           </div>
         ))}
 
-        <button>Check out</button>
+        {cartStore.cart.length > 0 && <button>Check out</button>}
+
+        {!cartStore.cart.length && <button>Your cart is empty</button>}
       </div>
     </div>
   );
