@@ -3,6 +3,7 @@ import "./globals.css";
 
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
+import Hydrate from "@/components/Hydrate";
 
 export const metadata = {
   title: "Create Next App",
@@ -18,8 +19,10 @@ export default async function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body className="p-6 bg-light">
-        <Navbar user={session?.user} expires={session?.expires} />
-        {children}
+        <Hydrate>
+          <Navbar user={session?.user} expires={session?.expires} />
+          {children}
+        </Hydrate>
       </body>
     </html>
   );
