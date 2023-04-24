@@ -6,6 +6,10 @@ import { IoAddCircle, IoRemoveCircle } from "react-icons/io5";
 function Cart() {
   const cartStore = useCartStore();
 
+  const totalPrice = cartStore.cart.reduce((acc, item) => {
+    return acc + item.unit_amount! * item.quantity!;
+  }, 0);
+
   return (
     <div
       className="fixed w-full h-screen left-0 top-0 bg-black/25"
@@ -63,8 +67,9 @@ function Cart() {
           </div>
         ))}
 
-        {cartStore.cart.length > 0 && <button>Check out</button>}
+        <p>Total: {formatPrice(totalPrice)}</p>
 
+        {cartStore.cart.length > 0 && <button>Check out</button>}
         {!cartStore.cart.length && <button>Your cart is empty</button>}
       </div>
     </div>
