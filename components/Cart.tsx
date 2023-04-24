@@ -1,9 +1,9 @@
 import formatPrice from "@/util/price-format";
 import { useCartStore } from "@/util/store";
 import Image from "next/image";
-interface Props {}
+import { IoAddCircle, IoRemoveCircle } from "react-icons/io5";
 
-function Cart(props: Props) {
+function Cart() {
   const cartStore = useCartStore();
 
   return (
@@ -30,6 +30,35 @@ function Cart(props: Props) {
               <p>{item.name}</p>
               <p>Quantity: {item.quantity}</p>
               <p>{formatPrice(item.unit_amount)}</p>
+
+              <button
+                className="text-lg"
+                onClick={() =>
+                  cartStore.removeProduct({
+                    id: item.id,
+                    image: item.image,
+                    name: item.name,
+                    unit_amount: item.unit_amount,
+                    quantity: item.quantity,
+                  })
+                }
+              >
+                <IoRemoveCircle />
+              </button>
+              <button
+                className="text-lg"
+                onClick={() =>
+                  cartStore.addProduct({
+                    id: item.id,
+                    image: item.image,
+                    name: item.name,
+                    unit_amount: item.unit_amount,
+                    quantity: item.quantity,
+                  })
+                }
+              >
+                <IoAddCircle />
+              </button>
             </div>
           </div>
         ))}
