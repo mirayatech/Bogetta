@@ -1,3 +1,4 @@
+import AddCart from "@/components/AddCart";
 import { SearchParamsTypes } from "@/types";
 import formatPrice from "@/util/price-format";
 import Image from "next/image";
@@ -16,6 +17,7 @@ export default async function Product({ searchParams }: SearchParamsTypes) {
         <h1>{searchParams.name}</h1>
         <p>{searchParams.description}</p>
         <span>{formatPrice(searchParams.unit_amount)}</span>
+        <AddCart {...searchParams} />
       </div>
     </div>
   );
