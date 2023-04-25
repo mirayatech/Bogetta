@@ -1,4 +1,4 @@
-import AddCart from "@/components/AddCart";
+import AddCart from "@/app/components/AddCart";
 import { SearchParamsTypes } from "@/types";
 import formatPrice from "@/util/price-format";
 import Image from "next/image";

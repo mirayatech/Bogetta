@@ -2,7 +2,8 @@ import { ProductType } from "@/types";
 import formatPrice from "@/util/price-format";
 import Image from "next/image";
 import Link from "next/link";
-function Product({
+
+export default function Product({
   name,
   image,
   unit_amount,
@@ -32,5 +33,3 @@ function Product({
     </Link>
   );
 }
-
-export default Product;

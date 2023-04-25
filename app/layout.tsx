@@ -1,9 +1,9 @@
-import Navbar from "@/components/Navbar";
+import Navbar from "@/app/components/Navbar";
 import "./globals.css";
 
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
-import Hydrate from "@/components/Hydrate";
+import Hydrate from "@/app/components/Hydrate";
 
 export const metadata = {
   title: "Create Next App",
