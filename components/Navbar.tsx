@@ -1,5 +1,5 @@
 "use client";
-
+import { AnimatePresence, motion } from "framer-motion";
 import Session from "next-auth";
 import { signIn } from "next-auth/react";
 import Image from "next/image";
@@ -35,9 +35,12 @@ export default function Navbar({ user }: NavbarProps) {
           onClick={() => cartStore.toggleCart()}
         >
           <AiFillShopping />
-          <span className="bg-primary text-white text-sm font-bold w-5 h-5 rounded-full absolute left-4 bottom-4 flex items-center justify-center">
-            {cartStore.cart.length}
-          </span>
+
+          {cartStore.cart.length > 0 && (
+            <span className="bg-primary text-white text-sm font-bold w-5 h-5 rounded-full absolute left-4 bottom-4 flex items-center justify-center">
+              {cartStore.cart.length}
+            </span>
+          )}
         </li>
         {!user && (
           <li>
@@ -61,7 +64,7 @@ export default function Navbar({ user }: NavbarProps) {
           </li>
         )}
       </ul>
-      {cartStore.isOpen && <Cart />}
+      <AnimatePresence>{cartStore.isOpen && <Cart />}</AnimatePresence>
     </nav>
   );
 }
