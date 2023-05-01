@@ -35,7 +35,8 @@ export default function Checkout() {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
+        setClientSecret(data.paymentIntent.client_secret);
+        cartStore.setPaymentIntent(data.paymentIntent.id);
       });
   }, []);
 
