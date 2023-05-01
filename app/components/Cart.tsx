@@ -3,6 +3,7 @@ import { useCartStore } from "@/util/store";
 import Image from "next/image";
 import { IoAddCircle, IoRemoveCircle } from "react-icons/io5";
 import Checkout from "./Checkout";
+import ConfirmOrder from "./ConfirmOrder";
 
 function Cart() {
   const cartStore = useCartStore();
@@ -112,6 +113,7 @@ function Cart() {
             <h1>Uhhh ohhh...it's empty 😢</h1>
           </div>
         )}
+        {cartStore.onCheckout === "success" && <ConfirmOrder />}
       </div>
     </div>
   );
