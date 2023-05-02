@@ -10,6 +10,14 @@ function ConfirmOrder() {
     cartStore.setPaymentIntent("");
     cartStore.clearCart();
   }, []);
+
+  const onCheckoutOrder = () => {
+    setTimeout(() => {
+      cartStore.setOnCheckout("cart");
+    }, 1000);
+    cartStore.toggleCart();
+  };
+
   return (
     <div>
       <h1>Your order has been placed</h1>
@@ -17,11 +25,9 @@ function ConfirmOrder() {
       <Image alt="d" height={100} width={100} src={"/giphy.gif"} />
       <button
         onClick={() => {
-          cartStore.setOnCheckout("cart");
-          cartStore.toggleCart();
+          onCheckoutOrder;
         }}
       >
-        {" "}
         <Link href="/dashboard">Check your order</Link>
       </button>
     </div>
