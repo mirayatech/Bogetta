@@ -1,6 +1,7 @@
 "use client";
 
 import { ReactNode, useEffect, useState } from "react";
+import styles from "./hydrate.module.scss";
 
 export default function Hydrate({ children }: { children: ReactNode }) {
   const [isHydrated, setIsHydrated] = useState(false);
@@ -11,7 +12,9 @@ export default function Hydrate({ children }: { children: ReactNode }) {
   }, []);
 
   return isHydrated ? (
-    <body>{children}</body>
+    <body>
+      <div className={styles.hydrate}>{children}</div>
+    </body>
   ) : (
     <body>
       <img src="/loading.gif" />

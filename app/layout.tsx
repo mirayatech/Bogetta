@@ -3,7 +3,7 @@ import "./styles/global.scss";
 
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
-import Hydrate from "@/app/components/Hydrate";
+import Hydrate from "@/app/components/Hydrate/Hydrate";
 
 export const metadata = {
   title: "Create Next App",
