@@ -6,6 +6,7 @@ import { useCartStore } from "@/util/store";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import CheckoutForm from "./CheckoutForm";
+import OrderAnimation from "./OrderAnimation";
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
@@ -51,6 +52,7 @@ export default function Checkout() {
 
   return (
     <div>
+      {!clientSecret && <OrderAnimation />}
       {clientSecret && (
         <div>
           <Elements options={options} stripe={stripePromise}>
