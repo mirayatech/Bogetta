@@ -1,5 +1,5 @@
-import Navbar from "@/app/components/Navbar";
-import "./globals.css";
+import Navbar from "@/app/components/Navbar/Navbar";
+import "./styles/global.scss";
 
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
