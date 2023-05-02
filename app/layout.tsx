@@ -18,12 +18,10 @@ export default async function RootLayout({ children }: RootLayoutProps) {
   const session = await getServerSession(authOptions);
   return (
     <html lang="en">
-      <body className="p-6 bg-light">
-        <Hydrate>
-          <Navbar user={session?.user} expires={session?.expires} />
-          {children}
-        </Hydrate>
-      </body>
+      <Hydrate>
+        <Navbar user={session?.user} expires={session?.expires} />
+        {children}
+      </Hydrate>
     </html>
   );
 }

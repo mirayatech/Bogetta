@@ -10,7 +10,13 @@ export default function Hydrate({ children }: { children: ReactNode }) {
     setIsHydrated(true);
   }, []);
 
-  return isHydrated ? <>{children}</> : <img src="/loading.gif" />;
+  return isHydrated ? (
+    <body>{children}</body>
+  ) : (
+    <body>
+      <img src="/loading.gif" />
+    </body>
+  );
 }
 
 /* This code ensures that the client and server render always matching.
