@@ -1,0 +1,54 @@
+@import "../../styles/index.scss";
+
+.logo {
+  font-weight: 500;
+  color: $dark-brown;
+  text-transform: uppercase;
+}
+
+.nav {
+  width: 100%;
+  display: flex;
+  position: fixed;
+  background: $white;
+  align-items: center;
+  transition: all 0.3s ease;
+  justify-content: space-between;
+  padding: $default-padding $medium-padding;
+  box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.05);
+}
+
+.list {
+  gap: 30px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+.cart {
+  position: relative;
+}
+
+.cartIcon {
+  font-size: 25px;
+  color: $dark-brown;
+}
+
+.cartQuantity {
+  top: -8px;
+  right: -3px;
+  color: white;
+  font-size: 9px;
+  font-weight: bold;
+  position: absolute;
+  border-radius: 50%;
+  background-color: $primary;
+  padding: 1px $small-padding;
+}
+
+.avatar {
+  border-radius: 50%;
+}
+
+.bars {
+  font-size: 28px;
+}
