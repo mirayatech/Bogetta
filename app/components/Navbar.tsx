@@ -1,12 +1,12 @@
 "use client";
 import { AnimatePresence, motion } from "framer-motion";
-import Session from "next-auth";
 import { signIn } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import Cart from "./Cart";
 import { useCartStore } from "@/util/store";
 import { AiFillShopping } from "react-icons/ai";
+
 type NavbarProps = {
   user:
     | {
@@ -42,6 +42,7 @@ export default function Navbar({ user }: NavbarProps) {
             </span>
           )}
         </li>
+
         {!user && (
           <li>
             <button
@@ -52,16 +53,19 @@ export default function Navbar({ user }: NavbarProps) {
             </button>
           </li>
         )}
+
         {user && (
-          <li>
-            <Image
-              className="rounded-full"
-              src={user?.image as string}
-              alt={user?.name as string}
-              width={60}
-              height={60}
-            />
-          </li>
+          <Link href={"/dashboard"}>
+            <li>
+              <Image
+                className="rounded-full"
+                src={user?.image as string}
+                alt={user?.name as string}
+                width={60}
+                height={60}
+              />
+            </li>
+          </Link>
         )}
       </ul>
       <AnimatePresence>{cartStore.isOpen && <Cart />}</AnimatePresence>
