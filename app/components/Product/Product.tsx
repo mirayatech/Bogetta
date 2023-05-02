@@ -2,7 +2,7 @@ import { ProductType } from "@/types";
 import formatPrice from "@/util/price-format";
 import Image from "next/image";
 import Link from "next/link";
-
+import styles from "./product.module.scss";
 export default function Product({
   name,
   image,
@@ -14,6 +14,7 @@ export default function Product({
   const { features } = metadata;
   return (
     <Link
+      className={styles.card}
       href={{
         pathname: `/products/${id}`,
         query: { name, image, unit_amount, id, description, features },
@@ -22,13 +23,13 @@ export default function Product({
       <Image
         src={image}
         alt={name}
-        width={500}
-        height={500}
-        className="w-full object-cover"
+        width={300}
+        height={300}
+        className={styles.image}
       />
-      <div className="flex flex-col mt-2 font-medium text-lg">
-        <span className="text-dark">{name}</span>
-        <span className="text-primary">{formatPrice(unit_amount)}</span>
+      <div className={styles.wrapper}>
+        <span className={styles.name}>{name}</span>
+        <span className={styles.price}>{formatPrice(unit_amount)}</span>
       </div>
     </Link>
   );

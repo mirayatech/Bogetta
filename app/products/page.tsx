@@ -1,4 +1,5 @@
-import Product from "@/app/components/Product";
+import styles from "./styles.module.scss";
+import Product from "@/app/components/Product/Product";
 import Stripe from "stripe";
 
 const getProducts = async () => {
@@ -35,7 +36,7 @@ const getProducts = async () => {
 export default async function Home() {
   const products = await getProducts();
   return (
-    <main className="grid grid-cols-fluid gap-y-10 gap-x-5">
+    <main className={styles.container}>
       {products.map((product) => (
         <Product {...product} key={product.id} />
       ))}

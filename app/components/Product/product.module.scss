@@ -1,0 +1,34 @@
+@import "../../styles/index.scss";
+
+.card {
+  @include flex-column();
+  border-radius: 3px;
+  align-items: center;
+  justify-content: center;
+  background-color: $white;
+  transition: all 0.3s ease;
+  box-shadow: 1px 3px 8px $transparent-black;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.image {
+  border-radius: 3px;
+  padding-top: $large-padding;
+}
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  color: $dark-brown;
+  padding: $large-padding;
+}
+
+.name {
+  font-weight: 500;
+  margin-right: auto;
+  text-transform: uppercase;
+}
