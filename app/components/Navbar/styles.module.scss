@@ -6,16 +6,20 @@
   text-transform: uppercase;
 }
 
-.nav {
+.wrapper {
   width: 100%;
-  display: flex;
   position: fixed;
   background: $white;
-  align-items: center;
-  transition: all 0.3s ease;
-  justify-content: space-between;
   padding: $default-padding $medium-padding;
   box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.05);
+}
+
+.nav {
+  margin: auto;
+  display: flex;
+  max-width: 1200px;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .list {
