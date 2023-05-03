@@ -1,58 +1,53 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
 import Cart from "../Cart";
 import { useCartStore } from "@/util/store";
-import { HiOutlineXMark, HiOutlineBars3 } from "react-icons/hi2";
-import { MdShoppingCart } from "react-icons/md";
+import { HiOutlineXMark } from "react-icons/hi2";
+import { CgMenuGridR } from "react-icons/cg";
+import { BsBag } from "react-icons/Bs";
 
 import styles from "./styles.module.scss";
 import { useState } from "react";
 import { Menu } from "../Menu/Menu";
 import { UserType } from "@/types";
+import Image from "next/image";
 
-export default function Navbar({ user }: { user: UserType }) {
+type NavbarProps = {
+  user: UserType;
+};
+
+export default function Navbar({ user }: NavbarProps) {
   const cartStore = useCartStore();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className={styles.wrapper}>
-      <div className={styles.nav}>
-        {user ? (
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            <Image
-              src={user?.image as string}
-              alt={user?.name as string}
-              width={35}
-              height={35}
-              className={styles.avatar}
-            />
-          </button>
-        ) : (
-          <button
-            className={styles.bars}
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <HiOutlineXMark /> : <HiOutlineBars3 />}
-          </button>
+    <nav className={styles.nav}>
+      <Link href={"/"}>
+        <Image
+          src="/logo-dark-vertical.png"
+          width={40}
+          height={40}
+          alt="logo"
+          className={styles.logo}
+        />
+      </Link>
+      <button
+        className={styles.bars}
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+      >
+        {isMenuOpen ? <HiOutlineXMark /> : <CgMenuGridR />}
+      </button>
+
+      <span onClick={() => cartStore.toggleCart()} className={styles.cart}>
+        <BsBag className={styles.cartIcon} />
+        {cartStore.cart.length > 0 && (
+          <span className={styles.cartQuantity}>{cartStore.cart.length}</span>
         )}
-        <Link href={"/"}>
-          <h1 className={styles.logo}>barista</h1>
-        </Link>
-        <span onClick={() => cartStore.toggleCart()} className={styles.cart}>
-          <MdShoppingCart className={styles.cartIcon} />
-          {cartStore.cart.length > 0 && (
-            <span className={styles.cartQuantity}>{cartStore.cart.length}</span>
-          )}
-        </span>
-        {cartStore.isOpen && <Cart />}
-        {isMenuOpen && (
-          <Menu user={user} onClose={() => setIsMenuOpen(false)} />
-        )}
-      </div>
+      </span>
+      {cartStore.isOpen && <Cart />}
+      {isMenuOpen && <Menu user={user} onClose={() => setIsMenuOpen(false)} />}
     </nav>
   );
 }

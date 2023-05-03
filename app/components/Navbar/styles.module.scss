@@ -1,25 +1,13 @@
 @import "../../styles/index.scss";
 
-.logo {
-  font-weight: 500;
-  color: $dark-brown;
-  text-transform: uppercase;
-}
-
-.wrapper {
-  width: 100%;
-  position: fixed;
-  background: $white;
-  padding: $default-padding $medium-padding;
-  box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.05);
-}
-
 .nav {
-  margin: auto;
-  display: flex;
-  max-width: 1200px;
+  height: 100vh;
+  position: fixed;
+  @include flex-column;
   align-items: center;
+  padding: $medium-padding * 2;
   justify-content: space-between;
+  border-right: 1px solid $light-grey;
 }
 
 .list {
@@ -33,26 +21,17 @@
 }
 
 .cartIcon {
-  font-size: 25px;
-  color: $dark-brown;
+  font-size: 35px;
 }
 
 .cartQuantity {
-  top: -8px;
-  right: -3px;
-  color: white;
-  font-size: 9px;
+  top: 13px;
+  left: 15px;
+  font-size: 12px;
   font-weight: bold;
   position: absolute;
-  border-radius: 50%;
-  background-color: $primary;
-  padding: 1px $small-padding;
-}
-
-.avatar {
-  border-radius: 50%;
 }
 
 .bars {
-  font-size: 28px;
+  font-size: 38px;
 }
