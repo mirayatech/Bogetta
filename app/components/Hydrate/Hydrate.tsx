@@ -1,7 +1,11 @@
 "use client";
 
+import { Player } from "@lottiefiles/react-lottie-player";
 import { ReactNode, useEffect, useState } from "react";
-import styles from "./hydrate.module.scss";
+
+import loading from "../../../public/loading.json";
+
+import styles from "./styles.module.scss";
 
 export default function Hydrate({ children }: { children: ReactNode }) {
   const [isHydrated, setIsHydrated] = useState(false);
@@ -13,10 +17,10 @@ export default function Hydrate({ children }: { children: ReactNode }) {
 
   return isHydrated ? (
     <body>
-      <div className={styles.hydrate}>{children}</div>
+      <div>{children}</div>
     </body>
   ) : (
-    <body>
+    <body className={styles.container}>
       <img src="/loading.gif" />
     </body>
   );

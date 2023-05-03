@@ -19,7 +19,8 @@ export default async function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <Hydrate>
-        <Navbar user={session?.user} expires={session?.expires} />
+        {/* @ts-ignore */}
+        <Navbar user={session?.user} />
         {children}
       </Hydrate>
     </html>
