@@ -2,36 +2,44 @@ import { UserType } from "@/types";
 import styles from "./styles.module.scss";
 import Link from "next/link";
 import { signIn, signOut } from "next-auth/react";
+import ClickAwayListener from "react-click-away-listener";
 
 type MenuProps = {
   onClose: () => void;
-  user: UserType;
+  user?: UserType;
 };
 
 export function Menu({ onClose, user }: MenuProps) {
   return (
-    <div className={styles.backdrop} onClick={onClose}>
+    <ClickAwayListener onClickAway={onClose}>
       <div className={styles.menu}>
-        <Link href={"/"} className={styles.menuItem}>
-          Home
-        </Link>
-        <Link href={"/products"} className={styles.menuItem}>
-          Shop
-        </Link>
-        <Link href={"/dashboard"} className={styles.menuItem}>
-          {" "}
-          Dashboard
-        </Link>
-        {!user ? (
-          <button onClick={() => signIn()} className={styles.menuItem}>
-            Sign in
-          </button>
-        ) : (
-          <button onClick={() => signOut()} className={styles.menuItem}>
-            Sign Out
-          </button>
-        )}
+        <div className={styles.nav}>
+          <Link href={"/"} className={styles.navItem}>
+            Home
+          </Link>
+          <Link href={"/dashboard"} className={styles.navItem}>
+            Dashboard
+          </Link>
+          {!user ? (
+            <button onClick={() => signIn()} className={styles.navItem}>
+              Sign in
+            </button>
+          ) : (
+            <button onClick={() => signOut()} className={styles.navItem}>
+              Sign Out
+            </button>
+          )}
+        </div>
+
+        <div className={styles.author}>
+          <a
+            href={"https://github.com/mirayatech"}
+            className={styles.authorItem}
+          >
+            Built and designed by miraya
+          </a>
+        </div>
       </div>
-    </div>
+    </ClickAwayListener>
   );
 }
