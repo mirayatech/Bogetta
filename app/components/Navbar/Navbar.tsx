@@ -12,6 +12,7 @@ import { useState } from "react";
 import { Menu } from "../Menu/Menu";
 import { UserType } from "@/types";
 import Image from "next/image";
+import { AnimatePresence } from "framer-motion";
 
 type NavbarProps = {
   user: UserType;
@@ -47,7 +48,11 @@ export default function Navbar({ user }: NavbarProps) {
         )}
       </span>
       {cartStore.isOpen && <Cart />}
-      {isMenuOpen && <Menu user={user} onClose={() => setIsMenuOpen(false)} />}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <Menu user={user} onClose={() => setIsMenuOpen(false)} />
+        )}
+      </AnimatePresence>
     </nav>
   );
 }

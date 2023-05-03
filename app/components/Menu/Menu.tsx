@@ -3,6 +3,7 @@ import styles from "./styles.module.scss";
 import Link from "next/link";
 import { signIn, signOut } from "next-auth/react";
 import ClickAwayListener from "react-click-away-listener";
+import { AnimatePresence, motion } from "framer-motion";
 
 type MenuProps = {
   onClose: () => void;
@@ -12,8 +13,14 @@ type MenuProps = {
 export function Menu({ onClose, user }: MenuProps) {
   return (
     <ClickAwayListener onClickAway={onClose}>
-      <div className={styles.menu}>
-        <div className={styles.nav}>
+      <motion.div
+        initial={{ opacity: 0, x: -30 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: -50 }}
+        transition={{ type: "ease-in" }}
+        className={styles.menu}
+      >
+        <motion.div className={styles.nav}>
           <Link href={"/"} className={styles.navItem}>
             Home
           </Link>
@@ -29,7 +36,7 @@ export function Menu({ onClose, user }: MenuProps) {
               Sign Out
             </button>
           )}
-        </div>
+        </motion.div>
 
         <div className={styles.author}>
           <a
@@ -39,7 +46,7 @@ export function Menu({ onClose, user }: MenuProps) {
             Built and designed by miraya
           </a>
         </div>
-      </div>
+      </motion.div>
     </ClickAwayListener>
   );
 }
