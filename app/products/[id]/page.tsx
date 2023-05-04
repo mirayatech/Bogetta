@@ -1,22 +1,28 @@
-import AddCart from "@/app/components/AddCart";
+import AddCart from "@/app/components/AddCart/AddCart";
 import { SearchParamsTypes } from "@/types";
-import formatPrice from "@/util/price-format";
 import Image from "next/image";
+
+import styles from "./styles.module.scss";
+import formatPrice from "@/util/price-format";
 
 export default async function Product({ searchParams }: SearchParamsTypes) {
   return (
-    <div>
+    <div className={styles.container}>
       <Image
         width={500}
         height={500}
         alt={searchParams.name}
         src={searchParams.image}
-        className="object-cover"
       />
-      <div>
-        <h1>{searchParams.name}</h1>
-        <p>{searchParams.description}</p>
-        <span>{formatPrice(searchParams.unit_amount)}</span>
+      <div className={styles.info}>
+        <h1 className={styles.name}>
+          <span className={styles.logoName}>Bottega</span>
+          {searchParams.name}
+        </h1>
+        <span className={styles.price}>
+          {formatPrice(searchParams.unit_amount)}
+        </span>
+        <p className={styles.description}>{searchParams.description}</p>
         <AddCart {...searchParams} />
       </div>
     </div>
