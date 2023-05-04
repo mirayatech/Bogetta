@@ -27,7 +27,7 @@ export default function Navbar({ user }: NavbarProps) {
     <nav className={styles.nav}>
       <Link href={"/"}>
         <Image
-          src="/logo-dark-vertical.png"
+          src="/logo.png"
           width={40}
           height={40}
           alt="logo"

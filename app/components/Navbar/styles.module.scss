@@ -1,6 +1,8 @@
 @import "../../styles/index.scss";
 
 .nav {
+  top: 0;
+  z-index: 1000;
   height: 100vh;
   position: fixed;
   @include flex-column;
@@ -8,6 +10,7 @@
   padding: $medium-padding * 2;
   justify-content: space-between;
   border-right: 1px solid $light-grey;
+  background-color: $white;
 }
 
 .list {
@@ -26,7 +29,7 @@
 
 .cartQuantity {
   top: 13px;
-  left: 15px;
+  left: 13px;
   font-size: 12px;
   font-weight: bold;
   position: absolute;
