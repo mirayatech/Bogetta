@@ -7,28 +7,37 @@
   justify-content: center;
   background-color: $white;
   transition: all 0.3s ease;
-  box-shadow: 1px 3px 8px $transparent-black;
 
   &:hover {
     opacity: 0.8;
+
+    .name {
+      text-decoration: line-through;
+    }
   }
 }
 
-.image {
-  border-radius: 3px;
-  padding-top: $large-padding;
+.imageWrapper {
+  width: 100%;
+  max-width: 600px;
 }
 
-.wrapper {
+.image {
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  color: $dark-brown;
-  padding: $large-padding;
+  object-fit: cover;
+}
+
+.info {
+  @include flex-column();
+  align-items: center;
+  margin-top: -100px;
 }
 
 .name {
-  font-weight: 500;
-  margin-right: auto;
-  text-transform: uppercase;
+  font-size: 20px;
+}
+
+.price {
+  font-size: 14px;
+  color: $dark-grey;
 }

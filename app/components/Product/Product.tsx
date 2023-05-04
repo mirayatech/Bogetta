@@ -20,14 +20,16 @@ export default function Product({
         query: { name, image, unit_amount, id, description, features },
       }}
     >
-      <Image
-        src={image}
-        alt={name}
-        width={300}
-        height={300}
-        className={styles.image}
-      />
-      <div className={styles.wrapper}>
+      <div className={styles.imageWrapper}>
+        <Image
+          src={image}
+          alt={name}
+          width={600}
+          height={600}
+          className={styles.image}
+        />
+      </div>
+      <div className={styles.info}>
         <span className={styles.name}>{name}</span>
         <span className={styles.price}>{formatPrice(unit_amount)}</span>
       </div>

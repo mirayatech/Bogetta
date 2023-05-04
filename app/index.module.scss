@@ -1,15 +1,14 @@
-@import "../styles/index.scss";
-
 .container {
+  gap: 30px;
   display: grid;
-  gap: 30px 15px;
-  margin-top: 50px;
+  padding-left: 60px;
+  padding-bottom: 200px;
   grid-template-columns: repeat(1, minmax(20rem, 1fr));
 
-  @media screen and (min-width: 650px) {
+  @media screen and (min-width: 700px) {
     grid-template-columns: repeat(2, minmax(20rem, 1fr));
   }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1050xpx) {
     grid-template-columns: repeat(3, minmax(20rem, 1fr));
   }
 }
