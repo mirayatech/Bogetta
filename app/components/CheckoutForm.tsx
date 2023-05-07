@@ -1,6 +1,6 @@
 "use client";
 
-import formatPrice from "@/util/price-format";
+import { formatPrice } from "@/util/price-format";
 import { useCartStore } from "@/util/store";
 import {
   PaymentElement,
@@ -9,13 +9,15 @@ import {
 } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
 
-function CheckoutForm({ clientSecret }: { clientSecret: string }) {
-  const [isLoading, seIsLoading] = useState(false);
-
+export default function CheckoutForm({
+  clientSecret,
+}: {
+  clientSecret: string;
+}) {
   const stripe = useStripe();
   const elements = useElements();
-
   const cartStore = useCartStore();
+  const [isLoading, seIsLoading] = useState(false);
 
   const totalPrice = cartStore.cart.reduce((acc, item) => {
     return acc + item.unit_amount! * item.quantity!;
@@ -51,20 +53,17 @@ function CheckoutForm({ clientSecret }: { clientSecret: string }) {
   }, [stripe]);
 
   return (
-    <form onSubmit={handleOnSubmit}>
-      <PaymentElement id="payment-element" options={{ layout: "accordion" }} />
-      <h1>Total: {formattedPrice}</h1>
+    <form onSubmit={handleOnSubmit} className="bg-cardColor p-5 w-[500px]">
+      <PaymentElement id="payment-element" options={{ layout: "tabs" }} />
+      <h1 className="my-5 flex justify-between text-lg">
+        total <span className="text-base">{formattedPrice}</span>
+      </h1>
       <button
-        className="text-black"
-        id="submit"
+        className="text-sm font-semibold p-3 bg-black text-white hover:bg-buttonHover ease duration-200 w-full "
         disabled={isLoading || !stripe || !elements}
       >
-        <span id="button-text">
-          {isLoading ? <span>Processing...</span> : <span>Pay now!</span>}
-        </span>
+        {isLoading ? <span>Processing...</span> : <span>Pay now!</span>}
       </button>
     </form>
   );
 }
-
-export default CheckoutForm;

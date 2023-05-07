@@ -1,21 +1,10 @@
 import { Player } from "@lottiefiles/react-lottie-player";
-import { motion } from "framer-motion";
-import order from "../../public/order.json";
+import loading from "../../public/loading.json";
 
-function OrderAnimation() {
+export default function OrderAnimation() {
   return (
-    <div>
-      <motion.h1
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5 }}
-      >
-        Preaping your order
-      </motion.h1>
-
-      <Player autoplay loop src={order}></Player>
+    <div className="flex flex-col items-center justify-center h-screen m-auto">
+      <Player autoplay loop src={loading} />
     </div>
   );
 }
-
-export default OrderAnimation;

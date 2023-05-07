@@ -5,8 +5,9 @@ import { Elements } from "@stripe/react-stripe-js";
 import { useCartStore } from "@/util/store";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import CheckoutForm from "./CheckoutForm";
-import OrderAnimation from "./OrderAnimation";
+import { HiOutlineArrowLeft } from "react-icons/hi";
+import CheckoutForm from "./checkoutForm";
+import OrderAnimation from "./orderAnimation";
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
@@ -54,9 +55,16 @@ export default function Checkout() {
     <div>
       {!clientSecret && <OrderAnimation />}
       {clientSecret && (
-        <div>
+        <div className="flex flex-col items-center justify-center h-screen m-auto">
+          {cartStore.onCheckout === "checkout" && (
+            <button
+              onClick={() => cartStore.setOnCheckout("cart")}
+              className="pb-4 flex items-center gap-2 hover:scale-105 ease duration-100 ml-[-350px] font-semibold"
+            >
+              <HiOutlineArrowLeft /> check your cart
+            </button>
+          )}
           <Elements options={options} stripe={stripePromise}>
-            <h1>Form</h1>
             <CheckoutForm clientSecret={clientSecret} />
           </Elements>
         </div>
