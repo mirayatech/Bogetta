@@ -1,4 +1,4 @@
-const formatPrice = (amount: number | null) => {
+export const formatPrice = (amount: number | null) => {
   if (amount === null) {
     return "Not available";
   }
@@ -7,5 +7,3 @@ const formatPrice = (amount: number | null) => {
     currency: "EUR",
   }).format(amount / 100);
 };
-
-export default formatPrice;
