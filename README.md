@@ -31,6 +31,15 @@ While building Bogetta, the I learned a lot of things such as:
 
 And much more!
 
+<details>
+<summary><h3> 🎥 - Demo Video</h3></summary>
+ 
+https://user-images.githubusercontent.com/71933266/236698495-1c3edce1-741a-4bcb-b9f0-2afb5793b782.mov
+
+ 
+</details>
+
+
 
 <details>
 <summary><h3> 📸 - Demo Images </h3></summary>
