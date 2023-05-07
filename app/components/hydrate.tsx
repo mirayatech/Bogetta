@@ -1,11 +1,6 @@
 "use client";
 
-import { Player } from "@lottiefiles/react-lottie-player";
 import { ReactNode, useEffect, useState } from "react";
-
-import loading from "../../../public/loading.json";
-
-import styles from "./styles.module.scss";
 
 export default function Hydrate({ children }: { children: ReactNode }) {
   const [isHydrated, setIsHydrated] = useState(false);
@@ -20,7 +15,7 @@ export default function Hydrate({ children }: { children: ReactNode }) {
       <div>{children}</div>
     </body>
   ) : (
-    <body className={styles.container}>
+    <body className="flex items-center justify-center h-screen">
       <img src="/loading.gif" />
     </body>
   );
