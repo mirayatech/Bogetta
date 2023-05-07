@@ -4,8 +4,8 @@ import { useCartStore } from "@/util/store";
 import Image from "next/image";
 import React from "react";
 import { formatPrice } from "@/util/price-format";
-import Checkout from "../components/checkout";
-import ConfirmOrder from "../components/confirmOrder";
+import Checkout from "@/components/checkout";
+import ConfirmOrder from "@/components/confirmOrder";
 
 function Cart() {
   const cartStore = useCartStore();

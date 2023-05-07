@@ -2,8 +2,8 @@ import "./global.css";
 
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
-import Hydrate from "./components/hydrate";
-import Navbar from "./components/navbar";
+import Hydrate from "@/components/hydrate";
+import Navbar from "@/components/navbar";
 
 export const metadata = {
   title: "Bogetta",

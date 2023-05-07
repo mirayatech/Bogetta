@@ -1,11 +1,11 @@
+import React from "react";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth/next";
 import Image from "next/image";
 
-import React from "react";
-import Container from "../components/container";
 import { formatPrice } from "@/util/price-format";
 import { prisma } from "@/util/prisma";
+import Container from "@/components/container";
 
 export const revalidate = 0;
 

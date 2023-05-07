@@ -1,5 +1,5 @@
 import { Player } from "@lottiefiles/react-lottie-player";
-import loading from "../../public/loading.json";
+import loading from "../public/loading.json";
 
 export default function OrderAnimation() {
   return (

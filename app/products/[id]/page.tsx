@@ -1,8 +1,8 @@
 import { SearchParamsTypes } from "@/types";
 import Image from "next/image";
 
-import AddCart from "@/app/components/addCart";
 import { formatPrice } from "@/util/price-format";
+import AddCart from "@/components/addCart";
 
 export default async function Product({ searchParams }: SearchParamsTypes) {
   return (

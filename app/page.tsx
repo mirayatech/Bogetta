@@ -1,9 +1,10 @@
 import Stripe from "stripe";
 
 import styles from "./index.module.css";
-import Container from "./components/container";
-import Product from "./components/product";
+
 import getProducts from "@/util/getProduct";
+import Container from "@/components/container";
+import Product from "@/components/product";
 
 export default async function Home() {
   const products = await getProducts();

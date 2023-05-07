@@ -6,8 +6,8 @@ import { useCartStore } from "@/util/store";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { HiOutlineArrowLeft } from "react-icons/hi";
-import CheckoutForm from "./checkoutForm";
 import OrderAnimation from "./orderAnimation";
+import CheckoutForm from "./checkoutForm";
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
