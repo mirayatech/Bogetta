@@ -4,13 +4,13 @@ import Link from "next/link";
 import { useCartStore } from "@/util/store";
 import { HiOutlineXMark } from "react-icons/hi2";
 import { CgMenuGridR } from "react-icons/cg";
-import { BsBag } from "react-icons/Bs";
 
 import { useState } from "react";
 import { UserType } from "@/types";
 import Image from "next/image";
 import { AnimatePresence } from "framer-motion";
 import Menu from "./menu";
+import { BsBag } from "react-icons/Bs";
 
 type NavbarProps = {
   user: UserType;

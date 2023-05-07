@@ -2,11 +2,11 @@
 
 import { useCartStore } from "@/util/store";
 import Image from "next/image";
-import { BsChevronLeft, BsChevronRight } from "react-icons/Bs";
-import Checkout from "../components/checkout";
-import ConfirmOrder from "../components/confirmOrder";
+import ConfirmOrder from "@/app/components/confirmOrder";
 import React from "react";
 import { formatPrice } from "@/util/price-format";
+import { BsChevronLeft, BsChevronRight } from "react-icons/Bs";
+import Checkout from "@/app/components/checkout";
 
 function Cart() {
   const cartStore = useCartStore();
