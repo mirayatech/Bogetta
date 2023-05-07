@@ -1,4 +1,4 @@
-<div align="center"><h1 style="text-transform:uppercase;text-decoration:line-through;font-weight:bold">Bogetta</h1></div>
+### Bogetta 
 
 Bogetta is a fully functional e-commerce platform that specializes in high-quality, luxury sunglasses. The website is created using modern technologies to make sure that customers have a smooth and safe shopping experience online.
 
