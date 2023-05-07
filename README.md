@@ -1,4 +1,4 @@
-### Bogetta 
+## Bogetta 👓
 
 Bogetta is a fully functional e-commerce platform that specializes in high-quality, luxury sunglasses. The website is created using modern technologies to make sure that customers have a smooth and safe shopping experience online.
 
