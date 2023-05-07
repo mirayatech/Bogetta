@@ -1,10 +1,8 @@
 "use client";
-import formatPrice from "@/util/price-format";
-import { useCartStore } from "@/util/store";
-import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
 
-import styles from "./AddCart.module.scss";
+import { useCartStore } from "@/util/store";
+import { motion } from "framer-motion";
+
 import { AddCartType } from "@/types";
 
 export default function AddCart({
@@ -21,9 +19,9 @@ export default function AddCart({
       onClick={() =>
         cartStore.addProduct({ id, name, unit_amount, image, quantity })
       }
-      className={styles.button}
+      className="text-white text-xs p-3 w-32 bg-black mt-4 font-semibold hover:bg-buttonHover ease duration-150"
     >
-      <span>Add to cart</span>
+      Add to cart
     </motion.button>
   );
 }
