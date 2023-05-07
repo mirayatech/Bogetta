@@ -27,7 +27,7 @@ export default function Menu({ onClose, user }: MenuProps) {
         exit={{ opacity: 0, x: -50 }}
         transition={{ type: "ease-in" }}
         style={{ boxShadow: "10px 0px 10px -10px rgba(0, 0, 0, 0.15)" }}
-        className="flex flex-col items-center justify-end h-screen gap-5 absolute top-0 left-[113px] bg-white w-60 px-5 py-10"
+        className="flex flex-col items-center justify-end h-screen gap-5 absolute top-0 left-[112px] bg-white w-60 px-5 py-10"
       >
         <motion.div className="flex flex-col items-center gap-6 text-xl pt-72">
           <Link
