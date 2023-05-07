@@ -16,7 +16,7 @@ export default function Hydrate({ children }: { children: ReactNode }) {
     </body>
   ) : (
     <body className="flex items-center justify-center h-screen">
-      <img src="/loading.gif" />
+      <img src="/loading.gif" className="w-[100px]" />
     </body>
   );
 }
