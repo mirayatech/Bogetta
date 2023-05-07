@@ -2,11 +2,10 @@
 
 import { useCartStore } from "@/util/store";
 import Image from "next/image";
-import ConfirmOrder from "@/app/components/confirmOrder";
 import React from "react";
 import { formatPrice } from "@/util/price-format";
-import { BsChevronLeft, BsChevronRight } from "react-icons/Bs";
-import Checkout from "@/app/components/checkout";
+import Checkout from "../components/checkout";
+import ConfirmOrder from "../components/confirmOrder";
 
 function Cart() {
   const cartStore = useCartStore();
@@ -55,7 +54,20 @@ function Cart() {
                             })
                           }
                         >
-                          <BsChevronLeft />
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth={1.5}
+                            stroke="currentColor"
+                            className="w-4 h-4"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M15.75 19.5L8.25 12l7.5-7.5"
+                            />
+                          </svg>
                         </button>
                         <span className="text-xs w-[10px] flex items-center justify-center">
                           {item.quantity}
@@ -71,7 +83,20 @@ function Cart() {
                             })
                           }
                         >
-                          <BsChevronRight />
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            className="w-4 h-4"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                            />
+                          </svg>
                         </button>
                       </div>
                     </div>
