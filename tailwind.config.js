@@ -14,13 +14,11 @@ module.exports = {
         fluid: "repeat(auto-fit, minmax(20rem,1fr))",
       },
       colors: {
-        // general
-        light: "#fff",
-        middle: "#666666",
-        dark: "#151412",
-        // Brown shades
-        primary: "#D2996F",
-        secondary: "#30271c",
+        borderColor: "#d9d9d9",
+        textColor: "#949494",
+        buttonHover: "#2f2f2f",
+        textHover: "#393939",
+        cardColor: "#fafafa",
       },
     },
   },
